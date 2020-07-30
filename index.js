@@ -1,11 +1,14 @@
 import { Init } from "./components/init/init.js";
 import { Game } from "./components/game/game.js";
-import { Dashboard } from "./components/dashboard/dashboard.js";
 import * as Character from "./components/character/character.js";
+import { PauseButton } from "./components/PauseButton/PauseButton.js";
+import { FPSIndicator } from "./components/FPSIndicator/FPSIndicator.js";
 
 const init = new Init();
 const game = new Game();
-const dashboard = new Dashboard(game);
+const pauseButton = new PauseButton(game);
+const fpsIndicator = new FPSIndicator(game);
+
 let clock = game.clock;
 
 window.onload = initLoop;
@@ -18,14 +21,6 @@ function gameLoop(timeStamp) {
   render();
   window.requestAnimationFrame(gameLoop);
 }
-
-const fpsIndicator = document.createElement("div");
-game.element.appendChild(fpsIndicator);
-fpsIndicator.innerText = "FPS: ";
-
-const fpsNumber = document.createElement("span");
-fpsIndicator.appendChild(fpsNumber);
-fpsNumber.innerText = 0;
 
 const character1 = Character.create(500, 300, 1, game);
 game.sprites.push(character1);
