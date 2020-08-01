@@ -2,14 +2,12 @@ import { Init } from "./components/init/init.js";
 import { Game } from "./components/game/game.js";
 import * as Character from "./components/character/character.js";
 import { PauseButton } from "./components/PauseButton/PauseButton.js";
-import { FPSIndicator } from "./components/FPSIndicator/FPSIndicator.js";
+import { FPS } from "./components/FPS/FPS.js";
 
 const init = new Init();
 const game = new Game();
 const pauseButton = new PauseButton(game);
-const fpsIndicator = new FPSIndicator(game);
-
-let clock = game.clock;
+const fps = new FPS(game);
 
 window.onload = initLoop;
 
@@ -30,9 +28,9 @@ game.sprites.push(character2);
 
 function render() {
   if (!game.pause) {
-    clock++;
+    game.clock++;
     // console.log(clock);
-    if (clock % 10 === 0) {
+    if (game.clock % 10 === 0) {
       game.sprites.map((sprite) => {
         sprite.render();
       });
