@@ -1,17 +1,25 @@
 export class FPS {
   constructor(game) {
     this.createFPScontainer(game);
+    this.styleFPScontainer();
     this.trackFPS(game);
   }
   createFPScontainer(game) {
-    this.FPSContainer = document.createElement("div");
-    this.FPSContainer.setAttribute("id", "fps-container");
-    this.FPSContainer.innerHTML = `
+    this.FPScontainer = document.createElement("div");
+    this.FPScontainer.setAttribute("id", "fps-container");
+    this.FPScontainer.innerHTML = `
     <label>FPS: </label>
     <span id="fps-value">0</span>
     `;
-    game.element.appendChild(this.FPSContainer);
+    game.element.appendChild(this.FPScontainer);
     game.FPSvalue = document.getElementById("fps-value");
+  }
+
+  styleFPScontainer() {
+    console.log(this.FPScontainer);
+    this.FPScontainer.style.padding = "10px";
+    this.FPScontainer.style.backgroundColor = "#000";
+    this.FPScontainer.style.color = "#35c735";
   }
 
   trackFPS(game) {
