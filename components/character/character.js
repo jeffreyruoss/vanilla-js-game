@@ -1,9 +1,5 @@
 export class Character {
-  constructor() {}
-
-  characterID = "";
-
-  element = "";
+  constructor(game) {}
 
   create(x, y) {
     this.element = document.createElement("div");
@@ -29,8 +25,10 @@ export class Character {
     }
   }
 
-  render() {
-    this.idleAnimation();
+  render(game) {
+    if (game.clock % game.spriteSheetSpeed == 0) {
+      this.idleAnimation(game);
+    }
   }
 }
 

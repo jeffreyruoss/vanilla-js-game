@@ -30,10 +30,8 @@ function render() {
   if (!game.pause) {
     game.clock++;
     // console.log(clock);
-    if (game.clock % 10 === 0) {
-      game.sprites.map((sprite) => {
-        sprite.render();
-      });
-    }
+    game.sprites.map((sprite) => {
+      sprite.render(game);
+    });
   }
 }

@@ -3,6 +3,7 @@ export class Game {
     this.element = document.getElementById("game");
     this.pause = false;
     this.sprites = [];
+    this.spriteSheetSpeed = 20; // 60 is once per second / 1 is 60 per second
     this.element.style.backgroundColor = "grey";
     this.element.style.boxSizing = "border-box";
     this.element.style.width = "100%";
