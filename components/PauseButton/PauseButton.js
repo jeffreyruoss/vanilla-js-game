@@ -4,7 +4,7 @@ export class PauseButton {
     game.element.appendChild(this.element);
 
     this.element.innerText = "PAUSE";
-    this.element.style.top = "60px";
+    this.element.style.top = "80px";
 
     this.element.addEventListener("click", function () {
       if (game.pause) {

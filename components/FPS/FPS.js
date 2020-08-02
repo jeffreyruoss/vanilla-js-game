@@ -1,27 +1,27 @@
 export class FPS {
   constructor(game) {
     this.createFPScontainer(game);
-    this.createFPStrue(game);
-    this.createFPSgame(game);
     this.trackFPS(game);
   }
 
   createFPScontainer(game) {
     this.FPSContainer = document.createElement("div");
     this.FPSContainer.setAttribute("id", "fps-container");
+    this.FPSContainer.innerHTML = `
+    <table>
+      <tr>
+        <td><label>FPS (true): </label></td>
+        <td><span id="fps-true">0</span></td>
+      </tr>
+      <tr>
+        <td><label>FPS (game): </label></td>
+        <td><span id="fps-game">0</span></td>
+      </tr>
+    </table>
+    `;
     game.element.appendChild(this.FPSContainer);
-  }
-
-  createFPStrue(game) {
-    this.FPStrue = document.createElement("div");
-    this.FPStrue.setAttribute("id", "fps-true");
-    this.FPSContainer.appendChild(this.FPStrue);
-  }
-
-  createFPSgame(game) {
-    this.FPSgame = document.createElement("div");
-    this.FPSgame.setAttribute("id", "fps-game");
-    this.FPSContainer.appendChild(this.FPSgame);
+    game.FPStrue = document.getElementById("fps-true");
+    game.FPSgame = document.getElementById("fps-game");
   }
 
   // NEXT
@@ -31,8 +31,7 @@ export class FPS {
   trackFPS(game) {
     let clockCurrent = 0;
     setInterval(function () {
-      console.log("test");
-      console.log(game.clock - clockCurrent);
+      game.FPStrue.innerText = game.clock - clockCurrent;
       clockCurrent = game.clock;
     }, 1000);
   }
@@ -40,10 +39,8 @@ export class FPS {
   /**
    * Actual number of time requestAnimationFrame ran
    */
-  setFPStrue(game) {}
 
   /**
    * Game FPS that we set
    */
-  setFPSgame() {}
 }
