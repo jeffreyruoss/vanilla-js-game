@@ -1,6 +1,6 @@
 import { Init } from "./components/init/init.js";
 import { SceneManager } from "./components/SceneManager/SceneManager.js";
-import { Game } from "./components/game/game.js";
+import { Game } from "./components/Scenes/Main/Main.js";
 import * as Character from "./components/character/character.js";
 import { PauseButton } from "./components/PauseButton/PauseButton.js";
 import { FPS } from "./components/FPS/FPS.js";
@@ -11,7 +11,7 @@ const sceneManager = new SceneManager();
 
 if (localStorage.getItem("scene") === "title") {
   console.log("This will be the title scene");
-} else if (localStorage.getItem("scene") === "game") {
+} else if (localStorage.getItem("scene") === "main") {
   const game = new Game();
   const loop = new Loop(game);
   const pauseButton = new PauseButton(game);

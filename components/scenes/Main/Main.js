@@ -8,7 +8,6 @@ export class Game {
     this.element.style.width = "100%";
     this.element.style.height = "100%";
     this.element.style.padding = "30px";
-    this.element.info = "test info";
     this.clock = 0;
   }
 }
