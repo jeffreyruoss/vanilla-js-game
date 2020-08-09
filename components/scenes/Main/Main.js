@@ -1,4 +1,4 @@
-export class Game {
+export class Main {
   constructor() {
     this.element = document.getElementById("game");
     this.sprites = [];
