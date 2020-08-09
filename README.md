@@ -1,4 +1,4 @@
-# vanilla-js-game-engine
+# vanilla-js-game
 
 Building a vanilla JS game.
 
