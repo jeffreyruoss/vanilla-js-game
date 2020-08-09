@@ -1,15 +1,15 @@
 export class PauseButton {
-  constructor(stage) {
+  constructor(game) {
     if (localStorage.getItem("pauseState") === null) {
       localStorage.setItem("pauseState", "unpaused");
     }
-    this.createButton(stage);
+    this.createButton(game);
     this.addClickEvent();
   }
 
-  createButton(stage) {
+  createButton(game) {
     this.element = document.createElement("button");
-    stage.element.appendChild(this.element);
+    game.stage.element.appendChild(this.element);
     if (localStorage.getItem("pauseState") === "unpaused") {
       this.element.innerText = "PAUSE";
     } else {

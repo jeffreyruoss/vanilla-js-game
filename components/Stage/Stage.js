@@ -1,5 +1,5 @@
 export class Stage {
-  constructor() {
+  constructor(game) {
     this.scene;
     this.element = document.getElementById("stage");
     this.clock = 0;

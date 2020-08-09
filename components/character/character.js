@@ -1,5 +1,7 @@
 export class Character {
-  constructor(stage) {}
+  constructor(game) {
+    this.info = "character info";
+  }
 
   create(x, y) {
     this.element = document.createElement("div");
@@ -25,9 +27,9 @@ export class Character {
     }
   }
 
-  render(stage) {
-    if (stage.clock % stage.spriteSheetSpeed == 0) {
-      this.idleAnimation(stage);
+  render(game) {
+    if (game.stage.clock % game.stage.spriteSheetSpeed == 0) {
+      this.idleAnimation(game.stage);
     }
   }
 }

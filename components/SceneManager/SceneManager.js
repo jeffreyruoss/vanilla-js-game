@@ -1,28 +1,35 @@
+import { Stage } from "../Stage/Stage.js";
 import { Title } from "../Scenes/Title/Title.js";
 import { Main } from "../Scenes/Main/Main.js";
 
 export class SceneManager {
-  constructor(stage) {
+  constructor(game) {
     if (localStorage.getItem("scene") === null) {
       localStorage.setItem("scene", "title");
     }
-    this.loadScene(stage);
+    this.loadScene(game);
   }
 
-  loadScene(stage, sceneName = "fromLocalStorage") {
-    stage.element.parentNode.removeChild(stage.element);
-    stage.element = document.createElement("div");
-    document.getElementsByTagName("body")[0].appendChild(stage.element);
-    stage.element.id = "stage";
+  loadScene(game, sceneName = "fromLocalStorage") {
+    game.stage.element.parentNode.removeChild(game.stage.element);
+
+    clearInterval(game.stage.FPSsetInterval);
+    cancelAnimationFrame(game.stage.requestAnimationFrame);
+
+    game.stage = new Stage(game);
+
+    game.stage.element = document.createElement("div");
+    document.getElementsByTagName("body")[0].appendChild(game.stage.element);
+    game.stage.element.id = "stage";
 
     if (sceneName !== "fromLocalStorage") {
       localStorage.setItem("scene", sceneName);
     }
 
     if (localStorage.getItem("scene") === "title") {
-      stage.scene = new Title(stage);
+      game.stage.scene = new Title(game);
     } else if (localStorage.getItem("scene") === "main") {
-      stage.scene = new Main(stage);
+      game.stage.scene = new Main(game);
     }
   }
 }

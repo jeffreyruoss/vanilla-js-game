@@ -7,30 +7,32 @@ import {
 } from "../../../components/character/character.js";
 
 export class Main {
-  constructor(stage) {
-    stage.spriteSheetSpeed = 20; // 60 is once per second / 1 is 60 per second
-    stage.element.style.backgroundColor = "grey";
-    stage.element.style.boxSizing = "border-box";
-    stage.element.style.width = "100%";
-    stage.element.style.height = "100%";
-    stage.element.style.padding = "30px";
-    stage.clock = 0;
-    stage.loop = new Loop(stage);
-    stage.fps = new FPS(stage);
-    stage.pauseButton = new PauseButton(stage);
+  constructor(game) {
+    this.name = "Main";
+    game.stage.spriteSheetSpeed = 20; // 60 is once per second / 1 is 60 per second
+    game.stage.element.style.backgroundColor = "grey";
+    game.stage.element.style.boxSizing = "border-box";
+    game.stage.element.style.width = "100%";
+    game.stage.element.style.height = "100%";
+    game.stage.element.style.padding = "30px";
+    game.stage.clock = 0;
+    game.stage.loop = new Loop(game);
+    game.stage.fps = new FPS(game);
+    game.stage.pauseButton = new PauseButton(game);
 
-    const character1 = createCharacter(500, 300, 1, stage);
-    stage.sprites.push(character1);
+    const character1 = createCharacter(500, 300, 1, game);
+    game.stage.sprites.push(character1);
 
-    const character2 = createCharacter(200, 400, 2, stage);
-    stage.sprites.push(character2);
+    const character2 = createCharacter(200, 400, 2, game);
+    game.stage.sprites.push(character2);
 
     this.backToTitleButton = document.createElement("button");
-    stage.element.appendChild(this.backToTitleButton);
+    game.stage.element.appendChild(this.backToTitleButton);
     this.backToTitleButton.value = "Back to title";
     this.backToTitleButton.innerText = "Back to title";
+    this.backToTitleButton.style.top = "130px";
     this.backToTitleButton.addEventListener("click", () => {
-      sceneManager.loadScene(stage, "title");
+      game.sceneManager.loadScene(game, "title");
     });
   }
 }

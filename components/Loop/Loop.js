@@ -1,5 +1,5 @@
 export class Loop {
-  constructor(stage) {
+  constructor(game) {
     init();
 
     function init() {
@@ -7,15 +7,15 @@ export class Loop {
     }
 
     function gameLoop(timeStamp) {
-      render();
-      window.requestAnimationFrame(gameLoop);
+      render(game);
+      game.stage.requestAnimationFrame = requestAnimationFrame(gameLoop);
     }
 
-    function render() {
+    function render(game) {
       if (localStorage.getItem("pauseState") === "unpaused") {
-        stage.clock++;
-        stage.sprites.map((sprite) => {
-          sprite.render(stage);
+        game.stage.clock++;
+        game.stage.sprites.map((sprite) => {
+          sprite.render(game);
         });
       }
     }
