@@ -1,5 +1,5 @@
 export class Character {
-  constructor(game) {}
+  constructor(stage) {}
 
   create(x, y) {
     this.element = document.createElement("div");
@@ -13,7 +13,7 @@ export class Character {
       "url('/components/character/img/Char_one/Idle/Char_idle_down.png')";
     this.element.style.backgroundSize = "600%";
     this.element.style.imageRendering = "pixelated";
-    document.getElementById("game").appendChild(this.element);
+    document.getElementById("stage").appendChild(this.element);
   }
 
   idleAnimation() {
@@ -25,14 +25,14 @@ export class Character {
     }
   }
 
-  render(game) {
-    if (game.clock % game.spriteSheetSpeed == 0) {
-      this.idleAnimation(game);
+  render(stage) {
+    if (stage.clock % stage.spriteSheetSpeed == 0) {
+      this.idleAnimation(stage);
     }
   }
 }
 
-export function create(x, y) {
+export function createCharacter(x, y) {
   const character = new Character();
   character.create(x, y);
   return character;

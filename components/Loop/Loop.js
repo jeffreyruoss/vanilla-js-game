@@ -1,6 +1,6 @@
 export class Loop {
-  constructor(game) {
-    window.onload = init;
+  constructor(stage) {
+    init();
 
     function init() {
       window.requestAnimationFrame(gameLoop);
@@ -13,9 +13,9 @@ export class Loop {
 
     function render() {
       if (localStorage.getItem("pauseState") === "unpaused") {
-        game.clock++;
-        game.sprites.map((sprite) => {
-          sprite.render(game);
+        stage.clock++;
+        stage.sprites.map((sprite) => {
+          sprite.render(stage);
         });
       }
     }
