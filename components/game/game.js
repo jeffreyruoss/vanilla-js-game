@@ -1,7 +1,6 @@
 export class Game {
   constructor() {
     this.element = document.getElementById("game");
-    this.pause = false;
     this.sprites = [];
     this.spriteSheetSpeed = 20; // 60 is once per second / 1 is 60 per second
     this.element.style.backgroundColor = "grey";

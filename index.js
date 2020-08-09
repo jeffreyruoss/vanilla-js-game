@@ -27,7 +27,7 @@ const character2 = Character.create(200, 400, 2, game);
 game.sprites.push(character2);
 
 function render() {
-  if (!game.pause) {
+  if (localStorage.getItem("pauseState") === "unpaused") {
     game.clock++;
     // console.log(clock);
     game.sprites.map((sprite) => {
