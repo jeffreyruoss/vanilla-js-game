@@ -1,10 +1,14 @@
 export class PauseButton {
   constructor(game) {
+    this.checkState();
+    this.createButton(game);
+    this.addClickEvent();
+  }
+
+  checkState() {
     if (localStorage.getItem("pauseState") === null) {
       localStorage.setItem("pauseState", "unpaused");
     }
-    this.createButton(game);
-    this.addClickEvent();
   }
 
   createButton(game) {
