@@ -2,7 +2,13 @@ export class Game {
   constructor() {
     this.world;
     this.sceneManager;
-    const body = document.getElementsByTagName("body");
-    body[0].style.margin = 0;
+    this.globalStyles();
+  }
+
+  globalStyles() {
+    const style = document.createElement("style");
+    document.getElementsByTagName("head")[0].appendChild(style);
+    style.innerText = "#world > * {position: absolute;} ";
+    style.innerText = style.innerText + "body {margin: 0;}";
   }
 }
