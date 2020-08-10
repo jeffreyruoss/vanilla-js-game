@@ -1,9 +1,7 @@
 import { Game } from "./components/Game/Game.js";
 import { SceneManager } from "./components/SceneManager/SceneManager.js";
-import { Stage } from "./components/Stage/Stage.js";
-
-var testy = "this is test";
+import { World } from "./components/World/World.js";
 
 const game = new Game();
-game.stage = new Stage();
+game.world = new World();
 game.sceneManager = new SceneManager(game);

@@ -5,7 +5,7 @@ export class Title {
     console.log("this is title");
 
     this.startButton = document.createElement("button");
-    game.stage.element.appendChild(this.startButton);
+    game.world.element.appendChild(this.startButton);
     this.startButton.value = "START";
     this.startButton.innerText = "START";
     this.startButton.addEventListener("click", () => {

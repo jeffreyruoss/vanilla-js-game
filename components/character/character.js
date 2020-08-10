@@ -15,7 +15,7 @@ export class Character {
       "url('/components/character/img/Char_one/Idle/Char_idle_down.png')";
     this.element.style.backgroundSize = "600%";
     this.element.style.imageRendering = "pixelated";
-    document.getElementById("stage").appendChild(this.element);
+    document.getElementById("world").appendChild(this.element);
   }
 
   idleAnimation() {
@@ -28,8 +28,8 @@ export class Character {
   }
 
   render(game) {
-    if (game.stage.clock % game.stage.spriteSheetSpeed == 0) {
-      this.idleAnimation(game.stage);
+    if (game.world.clock % game.world.spriteSheetSpeed == 0) {
+      this.idleAnimation(game.world);
     }
   }
 }

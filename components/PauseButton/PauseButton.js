@@ -9,7 +9,7 @@ export class PauseButton {
 
   createButton(game) {
     this.element = document.createElement("button");
-    game.stage.element.appendChild(this.element);
+    game.world.element.appendChild(this.element);
     if (localStorage.getItem("pauseState") === "unpaused") {
       this.element.innerText = "PAUSE";
     } else {

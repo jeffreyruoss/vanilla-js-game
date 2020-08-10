@@ -12,8 +12,8 @@ export class FPS {
     <label>FPS: </label>
     <span id="fps-value">0</span>
     `;
-    game.stage.element.appendChild(this.FPScontainer);
-    game.stage.FPSvalue = document.getElementById("fps-value");
+    game.world.element.appendChild(this.FPScontainer);
+    game.world.FPSvalue = document.getElementById("fps-value");
   }
 
   styleFPScontainer() {
@@ -24,9 +24,9 @@ export class FPS {
 
   trackFPS(game) {
     let clockCurrent = 0;
-    game.stage.FPSsetInterval = setInterval(function () {
-      game.stage.FPSvalue.innerText = game.stage.clock - clockCurrent;
-      clockCurrent = game.stage.clock;
+    game.world.FPSsetInterval = setInterval(function () {
+      game.world.FPSvalue.innerText = game.world.clock - clockCurrent;
+      clockCurrent = game.world.clock;
     }, 1000);
   }
 }
