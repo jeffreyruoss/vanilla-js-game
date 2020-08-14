@@ -31,5 +31,10 @@ export class SceneManager {
     } else if (localStorage.getItem("scene") === "main") {
       game.world.scene = new Main(game);
     }
+
+    console.log(
+      `%c${localStorage.getItem("scene")} scene loaded`,
+      "color: #60ff4b; text-transform: capitalize; border-bottom: 1px solid #60ff4b78;"
+    );
   }
 }
