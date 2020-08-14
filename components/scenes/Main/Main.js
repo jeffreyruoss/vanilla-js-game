@@ -35,4 +35,10 @@ export class Main {
       game.sceneManager.loadScene(game, "title");
     });
   }
+
+  deconstructor(game) {
+    game.world.pauseButton.deconstructor();
+    clearInterval(game.world.FPSsetInterval);
+    cancelAnimationFrame(game.world.requestAnimationFrame);
+  }
 }

@@ -11,10 +11,10 @@ export class SceneManager {
   }
 
   loadScene(game, sceneName = "fromLocalStorage") {
+    if (game.world.scene !== undefined) {
+      game.world.scene.deconstructor(game);
+    }
     game.world.element.parentNode.removeChild(game.world.element);
-
-    clearInterval(game.world.FPSsetInterval);
-    cancelAnimationFrame(game.world.requestAnimationFrame);
 
     game.world = new World(game);
 

@@ -2,7 +2,6 @@ export class Title {
   constructor(game) {
     this.name = "Title";
     this.info = "info in the title scene";
-    console.log("this is title");
 
     this.startButton = document.createElement("button");
     game.world.element.appendChild(this.startButton);
@@ -12,4 +11,6 @@ export class Title {
       game.sceneManager.loadScene(game, "main");
     });
   }
+
+  deconstructor() {}
 }

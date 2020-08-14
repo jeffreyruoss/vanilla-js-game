@@ -34,4 +34,8 @@ export class PauseButton {
       }
     });
   }
+
+  deconstructor() {
+    localStorage.setItem("pauseState", "unpaused");
+  }
 }
