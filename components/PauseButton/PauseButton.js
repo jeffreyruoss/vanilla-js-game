@@ -15,9 +15,9 @@ export class PauseButton {
     this.element = document.createElement("button");
     game.world.element.appendChild(this.element);
     if (localStorage.getItem("pauseState") === "unpaused") {
-      this.element.innerText = "PAUSE";
+      this.element.innerText = "PAUSE (⎵)";
     } else {
-      this.element.innerText = "UNPAUSE";
+      this.element.innerText = "UNPAUSE (⎵)";
     }
     this.element.style.top = "80px";
     this.element.style.padding = "7px 10px";
@@ -27,10 +27,22 @@ export class PauseButton {
     this.element.addEventListener("click", () => {
       if (localStorage.getItem("pauseState") === "paused") {
         localStorage.setItem("pauseState", "unpaused");
-        this.element.innerText = "PAUSE";
+        this.element.innerText = "PAUSE (⎵)";
       } else {
         localStorage.setItem("pauseState", "paused");
-        this.element.innerText = "UNPAUSE";
+        this.element.innerText = "UNPAUSE (⎵)";
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode == 32) {
+        if (localStorage.getItem("pauseState") === "paused") {
+          localStorage.setItem("pauseState", "unpaused");
+          this.element.innerText = "PAUSE (⎵)";
+        } else {
+          localStorage.setItem("pauseState", "paused");
+          this.element.innerText = "UNPAUSE (⎵)";
+        }
       }
     });
   }
