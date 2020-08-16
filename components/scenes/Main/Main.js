@@ -4,7 +4,7 @@ import { FPS } from "../../../components/FPS/FPS.js";
 import {
   Character,
   createCharacter,
-} from "../../../components/character/character.js";
+} from "../../../components/Character/Character.js";
 
 export class Main {
   constructor(game) {
