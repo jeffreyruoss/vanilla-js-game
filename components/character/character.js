@@ -20,24 +20,25 @@ export class Character {
 
   idleAnimation(game) {
     if (game.world.clock % game.world.spriteSheetSpeed == 0) {
-    if (parseInt(this.element.style.backgroundPositionX) == 384) {
-      this.element.style.backgroundPositionX = 0;
-    } else {
-      this.element.style.backgroundPositionX =
-        parseInt(this.element.style.backgroundPositionX) + 64 + "px";
+      if (parseInt(this.element.style.backgroundPositionX) == 384) {
+        this.element.style.backgroundPositionX = 0;
+      } else {
+        this.element.style.backgroundPositionX =
+          parseInt(this.element.style.backgroundPositionX) + 64 + "px";
+      }
     }
   }
 
   move(game) {
-    if (game.playerInput.up) {
+    if (game.playerInput.w) {
       this.element.style.top = parseInt(this.element.style.top) - 4 + "px";
-    } else if (game.playerInput.down) {
+    } else if (game.playerInput.s) {
       this.element.style.top = parseInt(this.element.style.top) + 4 + "px";
     }
 
-    if (game.playerInput.left) {
+    if (game.playerInput.a) {
       this.element.style.left = parseInt(this.element.style.left) - 4 + "px";
-    } else if (game.playerInput.right) {
+    } else if (game.playerInput.d) {
       this.element.style.left = parseInt(this.element.style.left) + 4 + "px";
     }
   }

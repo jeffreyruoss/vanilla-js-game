@@ -1,37 +1,37 @@
 export class PlayerInput {
   constructor(game) {
-    this.up = "";
-    this.down = "";
-    this.left = "";
-    this.right = "";
+    this.w;
+    this.a;
+    this.s;
+    this.d;
 
     document.addEventListener("keydown", function (e) {
       if (e.key === "w") {
-        game.playerInput.up = true;
+        game.playerInput.w = true;
       }
       if (e.key === "a") {
-        game.playerInput.left = true;
+        game.playerInput.a = true;
       }
       if (e.key === "s") {
-        game.playerInput.down = true;
+        game.playerInput.s = true;
       }
       if (e.key === "d") {
-        game.playerInput.right = true;
+        game.playerInput.d = true;
       }
     });
 
     document.addEventListener("keyup", function (e) {
       if (e.key === "w") {
-        game.playerInput.up = false;
+        game.playerInput.w = false;
       }
       if (e.key === "a") {
-        game.playerInput.left = false;
+        game.playerInput.a = false;
       }
       if (e.key === "s") {
-        game.playerInput.down = false;
+        game.playerInput.s = false;
       }
       if (e.key === "d") {
-        game.playerInput.right = false;
+        game.playerInput.d = false;
       }
     });
   }
