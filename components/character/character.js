@@ -27,10 +27,26 @@ export class Character {
     }
   }
 
+  move(game) {
+    if (game.playerInput.up) {
+      this.element.style.top = parseInt(this.element.style.top) - 4 + "px";
+    } else if (game.playerInput.down) {
+      this.element.style.top = parseInt(this.element.style.top) + 4 + "px";
+    }
+
+    if (game.playerInput.left) {
+      this.element.style.left = parseInt(this.element.style.left) - 4 + "px";
+    } else if (game.playerInput.right) {
+      this.element.style.left = parseInt(this.element.style.left) + 4 + "px";
+    }
+  }
+
   render(game) {
     if (game.world.clock % game.world.spriteSheetSpeed == 0) {
       this.idleAnimation(game.world);
     }
+
+    this.move(game);
   }
 }
 

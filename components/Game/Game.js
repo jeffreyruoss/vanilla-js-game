@@ -1,7 +1,10 @@
+import { PlayerInput } from "../PlayerInput/PlayerInput.js";
+
 export class Game {
   constructor() {
     this.world;
     this.sceneManager;
+    this.playerInput = new PlayerInput(this);
     this.globalStyles();
   }
 
