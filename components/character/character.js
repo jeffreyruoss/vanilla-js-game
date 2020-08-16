@@ -18,7 +18,8 @@ export class Character {
     document.getElementById("world").appendChild(this.element);
   }
 
-  idleAnimation() {
+  idleAnimation(game) {
+    if (game.world.clock % game.world.spriteSheetSpeed == 0) {
     if (parseInt(this.element.style.backgroundPositionX) == 384) {
       this.element.style.backgroundPositionX = 0;
     } else {
@@ -42,10 +43,7 @@ export class Character {
   }
 
   render(game) {
-    if (game.world.clock % game.world.spriteSheetSpeed == 0) {
-      this.idleAnimation(game.world);
-    }
-
+    this.idleAnimation(game);
     this.move(game);
   }
 }
