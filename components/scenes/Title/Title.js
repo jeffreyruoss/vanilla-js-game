@@ -10,6 +10,13 @@ export class Title {
     this.startButton.addEventListener("click", () => {
       game.sceneManager.loadScene(game, "main");
     });
+
+    this.titleText = document.createElement("h1");
+    game.world.element.appendChild(this.titleText);
+    this.titleText.innerText = "BATTLE LAND";
+    this.titleText.style.top = "300px";
+    this.titleText.style.left = "280px";
+    this.titleText.style.fontSize = "100px";
   }
 
   deconstructor() {}
