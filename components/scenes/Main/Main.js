@@ -7,7 +7,9 @@ import {
 } from "../../../components/Character/Character.js";
 
 export class Main {
-  constructor(game) {
+  constructor(game) {}
+
+  load(game) {
     this.name = "Main";
     game.world.spriteSheetSpeed = 20; // 60 is once per second / 1 is 60 per second
     game.world.element.style.backgroundColor = "grey";
@@ -15,8 +17,6 @@ export class Main {
     game.world.element.style.width = "100%";
     game.world.element.style.height = "100%";
     game.world.element.style.padding = "30px";
-    game.world.clock = 0;
-    game.world.loop = new Loop(game);
     game.world.fps = new FPS(game);
     game.world.pauseButton = new PauseButton(game);
 
@@ -34,6 +34,11 @@ export class Main {
     this.backToTitleButton.addEventListener("click", () => {
       game.sceneManager.loadScene(game, "title");
     });
+  }
+
+  start(game) {
+    game.world.clock = 0;
+    game.world.loop = new Loop(game);
   }
 
   deconstructor(game) {

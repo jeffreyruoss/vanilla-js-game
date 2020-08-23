@@ -32,6 +32,9 @@ export class SceneManager {
       game.world.scene = new Main(game);
     }
 
+    game.world.scene.load(game);
+    game.world.scene.start(game);
+
     console.log(
       `%c${localStorage.getItem("scene")} scene loaded`,
       "color: #60ff4b; text-transform: capitalize; border-bottom: 1px solid #60ff4b78;"

@@ -1,5 +1,7 @@
 export class Title {
-  constructor(game) {
+  constructor(game) {}
+
+  load(game) {
     this.name = "Title";
     this.info = "info in the title scene";
 
@@ -18,6 +20,8 @@ export class Title {
     this.titleText.style.left = "280px";
     this.titleText.style.fontSize = "100px";
   }
+
+  start(game) {}
 
   deconstructor() {}
 }
