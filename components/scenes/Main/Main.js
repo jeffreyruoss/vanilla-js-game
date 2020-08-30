@@ -23,9 +23,6 @@ export class Main {
     const character1 = createCharacter(500, 300, 1, game);
     game.world.sprites.push(character1);
 
-    const character2 = createCharacter(200, 400, 2, game);
-    game.world.sprites.push(character2);
-
     this.backToTitleButton = document.createElement("button");
     game.world.element.appendChild(this.backToTitleButton);
     this.backToTitleButton.value = "Back to title";

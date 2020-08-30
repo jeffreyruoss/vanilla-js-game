@@ -1,6 +1,16 @@
+import { SpriteAnimate } from "../Sprite/SpriteAnimate.js";
+import { SpriteMove } from "../Sprite/SpriteMove.js";
+
 export class Character {
   constructor(game) {
     this.info = "character info";
+    this.currentAnimation = 'idleUp';
+    this.spriteSheets = {
+      'idleUp': "url('/components/character/img/Char_one/Idle/Char_idle_up.png')",
+      'idleDown': "url('/components/character/img/Char_one/Idle/Char_idle_down.png')",
+      'idleLeft': "url('/components/character/img/Char_one/Idle/Char_idle_left.png')",
+      'idleRight': "url('/components/character/img/Char_one/Idle/Char_idle_right.png')"
+    }
   }
 
   create(x, y) {
@@ -18,34 +28,19 @@ export class Character {
     document.getElementById("world").appendChild(this.element);
   }
 
-  idleAnimation(game) {
-    if (game.world.clock % game.world.spriteSheetSpeed == 0) {
-      if (parseInt(this.element.style.backgroundPositionX) == 384) {
-        this.element.style.backgroundPositionX = 0;
-      } else {
-        this.element.style.backgroundPositionX =
-          parseInt(this.element.style.backgroundPositionX) + 64 + "px";
-      }
-    }
-  }
-
-  move(game) {
-    if (game.playerInput.w) {
-      this.element.style.top = parseInt(this.element.style.top) - 4 + "px";
-    } else if (game.playerInput.s) {
-      this.element.style.top = parseInt(this.element.style.top) + 4 + "px";
-    }
-
-    if (game.playerInput.a) {
-      this.element.style.left = parseInt(this.element.style.left) - 4 + "px";
-    } else if (game.playerInput.d) {
-      this.element.style.left = parseInt(this.element.style.left) + 4 + "px";
-    }
-  }
-
   render(game) {
-    this.idleAnimation(game);
-    this.move(game);
+    this.spriteMove(game);
+    this.spriteAnimate(game);
+
+    if (this.currentAnimation == 'idleDown') {
+      this.element.style.backgroundImage = this.spriteSheets.idleUp;
+    } else if (this.currentAnimation == 'idleUp') {
+      this.element.style.backgroundImage = this.spriteSheets.idleDown;
+    } else if (this.currentAnimation == 'idleLeft') {
+      this.element.style.backgroundImage = this.spriteSheets.idleLeft;
+    } else if (this.currentAnimation == 'idleRight') {
+      this.element.style.backgroundImage = this.spriteSheets.idleRight;
+    }
   }
 }
 
@@ -54,3 +49,6 @@ export function createCharacter(x, y) {
   character.create(x, y);
   return character;
 }
+
+Object.assign(Character.prototype, SpriteAnimate);
+Object.assign(Character.prototype, SpriteMove);
