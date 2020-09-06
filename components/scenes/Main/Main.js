@@ -11,7 +11,7 @@ export class Main {
 
   load(game) {
     this.name = "Main";
-    game.world.spriteSheetSpeed = 20; // 60 is once per second / 1 is 60 per second
+    game.world.spriteSheetSpeed = 5; // 60 is once per second / 1 is 60 per second
     game.world.element.style.backgroundColor = "grey";
     game.world.element.style.boxSizing = "border-box";
     game.world.element.style.width = "100%";
