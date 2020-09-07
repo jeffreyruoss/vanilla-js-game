@@ -8,7 +8,8 @@ export class PlayerInput {
       "w" : [],
       "a" : [],
       "s" : [],
-      "d" : []
+      "d" : [],
+      "stop" : []
     };
 
     document.addEventListener("keydown", function (e) {

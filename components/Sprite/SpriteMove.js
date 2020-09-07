@@ -4,8 +4,11 @@ export const SpriteMove = {
           this.moving = true;
           this.currentAnimationSpeed = this.walkSpeed;
         } else {
-          this.moving = false;
-          this.currentAnimationSpeed = this.idleSpeed;
+          if (this.moving) {
+            game.playerInput.actionOnce("stop")
+            this.moving = false;
+            this.currentAnimationSpeed = this.idleSpeed;
+          }
         }
 
         if (game.playerInput.w) {
