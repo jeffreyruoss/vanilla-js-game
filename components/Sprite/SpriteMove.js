@@ -2,8 +2,10 @@ export const SpriteMove = {
     spriteMove(game) {
         if (game.playerInput.w || game.playerInput.s || game.playerInput.a || game.playerInput.d) {
           this.moving = true;
+          this.currentAnimationSpeed = this.walkSpeed;
         } else {
           this.moving = false;
+          this.currentAnimationSpeed = this.idleSpeed;
         }
 
         if (game.playerInput.w) {

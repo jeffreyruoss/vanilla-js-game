@@ -10,6 +10,6 @@ export const SpriteIdle = {
             } else if (this.currentDirection === 'right') {
               this.element.style.backgroundImage = this.spriteSheets['idleRight'];
             }
-          }
+        }
     }
 }

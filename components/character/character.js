@@ -5,6 +5,9 @@ import { SpriteIdle } from "../Sprite/SpriteIdle.js";
 export class Character {
   constructor(game) {
     this.moving = false;
+    this.walkSpeed = 1;
+    this.idleSpeed = 0.5;
+    this.currentAnimationSpeed = this.idleSpeed;
     this.currentAnimation = 'idleUp';
     this.currentDirection = 'down';
     this.spriteSheets = {
