@@ -4,19 +4,37 @@ export class PlayerInput {
     this.a;
     this.s;
     this.d;
+    this.actions = {
+      "w" : [],
+      "a" : [],
+      "s" : [],
+      "d" : []
+    };
 
     document.addEventListener("keydown", function (e) {
       if (e.key === "w") {
-        game.playerInput.w = true;
+        if (!game.playerInput.w) {
+          game.playerInput.actionOnce("w", game.playerInput.actionsList);
+          game.playerInput.w = true;
+        }
       }
       if (e.key === "a") {
-        game.playerInput.a = true;
+        if (!game.playerInput.a) {
+          game.playerInput.actionOnce("a", game.playerInput.actionsList);
+          game.playerInput.a = true;
+        }
       }
       if (e.key === "s") {
-        game.playerInput.s = true;
+        if (!game.playerInput.s) {
+          game.playerInput.actionOnce("s", game.playerInput.actionsList);
+          game.playerInput.s = true;
+        }
       }
       if (e.key === "d") {
-        game.playerInput.d = true;
+        if (!game.playerInput.d) {
+          game.playerInput.actionOnce("d", game.playerInput.actionsList);
+          game.playerInput.d = true;
+        }
       }
     });
 
@@ -35,4 +53,12 @@ export class PlayerInput {
       }
     });
   }
+
+  actionOnce(key) {
+    let actions = this.actions[key];
+    for (let action of actions) {
+      action();
+    }
+  }
+
 }

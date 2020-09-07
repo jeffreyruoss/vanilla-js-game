@@ -20,7 +20,7 @@ export class Main {
     game.world.fps = new FPS(game);
     game.world.pauseButton = new PauseButton(game);
 
-    const character1 = createCharacter(500, 300, 1, game);
+    const character1 = createCharacter(500, 300, game);
     game.world.sprites.push(character1);
 
     this.backToTitleButton = document.createElement("button");

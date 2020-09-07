@@ -1,5 +1,6 @@
 import { SpriteAnimate } from "../Sprite/SpriteAnimate.js";
 import { SpriteMove } from "../Sprite/SpriteMove.js";
+import { SpriteSetMoveActions } from "../Sprite/SpriteMove.js";
 import { SpriteIdle } from "../Sprite/SpriteIdle.js";
 
 export class Character {
@@ -19,7 +20,8 @@ export class Character {
       'walkDown': "url('/components/character/img/Char_one/Walk/Char_walk_down.png')",
       'walkLeft': "url('/components/character/img/Char_one/Walk/Char_walk_left.png')",
       'walkRight': "url('/components/character/img/Char_one/Walk/Char_walk_right.png')",
-    }
+    };
+    this.spriteSetMoveActions(game);
   }
 
   create(x, y) {
@@ -42,12 +44,13 @@ export class Character {
   }
 }
 
-export function createCharacter(x, y) {
-  const character = new Character();
+export function createCharacter(x, y, game) {
+  const character = new Character(game);
   character.create(x, y);
   return character;
 }
 
 Object.assign(Character.prototype, SpriteAnimate);
 Object.assign(Character.prototype, SpriteMove);
+Object.assign(Character.prototype, SpriteSetMoveActions);
 Object.assign(Character.prototype, SpriteIdle);
