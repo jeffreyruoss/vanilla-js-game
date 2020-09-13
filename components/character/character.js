@@ -12,14 +12,14 @@ export class Character {
     this.currentAnimation = 'idleDown';
     this.currentDirection = 'down';
     this.spriteSheets = {
-      'idleUp': "url('/components/character/img/Char_one/Idle/Char_idle_up.png')",
-      'idleDown': "url('/components/character/img/Char_one/Idle/Char_idle_down.png')",
-      'idleLeft': "url('/components/character/img/Char_one/Idle/Char_idle_left.png')",
-      'idleRight': "url('/components/character/img/Char_one/Idle/Char_idle_right.png')",
-      'walkUp': "url('/components/character/img/Char_one/Walk/Char_walk_up.png')",
-      'walkDown': "url('/components/character/img/Char_one/Walk/Char_walk_down.png')",
-      'walkLeft': "url('/components/character/img/Char_one/Walk/Char_walk_left.png')",
-      'walkRight': "url('/components/character/img/Char_one/Walk/Char_walk_right.png')",
+      'idleUp': "url('components/character/img/Char_one/Idle/Char_idle_up.png')",
+      'idleDown': "url('components/character/img/Char_one/Idle/Char_idle_down.png')",
+      'idleLeft': "url('components/character/img/Char_one/Idle/Char_idle_left.png')",
+      'idleRight': "url('components/character/img/Char_one/Idle/Char_idle_right.png')",
+      'walkUp': "url('components/character/img/Char_one/Walk/Char_walk_up.png')",
+      'walkDown': "url('components/character/img/Char_one/Walk/Char_walk_down.png')",
+      'walkLeft': "url('components/character/img/Char_one/Walk/Char_walk_left.png')",
+      'walkRight': "url('components/character/img/Char_one/Walk/Char_walk_right.png')",
     };
     this.spriteSetIdleActions(game);
     this.spriteSetMoveActions(game);
